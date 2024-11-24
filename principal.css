@@ -16,6 +16,9 @@
     visibility: hidden; /* Mantém o elemento invisível */
 }
 
+
+
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*Header*/
 #header {
@@ -82,6 +85,7 @@ body {
 
 
 
+
 /* Estilos responsivos */
 @media (min-width: 2000px) {
     .logo {
@@ -94,7 +98,7 @@ body {
 }
 
 /* Mobile Adjustments */
-@media (max-width: 600px) {
+@media (max-width: 785px) {
     .nav-item {
         margin: 1px 0;
     }
@@ -176,7 +180,7 @@ body {
     z-index: 10;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 785px) {
     #banner-image {
         height: 100vh; /* Altura total da viewport */
         display: flex; /* Ativa o Flexbox */
@@ -486,28 +490,38 @@ body {
     }
 }
 
-.partners-description {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 30px;
-}
+/* Container geral */
 
-.partner {
-    text-align: center;
-    margin-top: 20px;
+.partners-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 100px; /* Espaçamento entre os parceiros */
 }
 
 .partner-logo {
-    width: 300px; /* Aumenta a largura da imagem */
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    max-height: 300px; /* Altura máxima padrão */
+    object-fit: contain;
+    transition: transform 0.3s;
 }
+
 
 .partner-logo:hover {
-    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
 }
 
+@media (max-width: 768px) {
+    .partners-container {
+        flex-direction: column; /* Muda a orientação para coluna */
+        gap: 20px; /* Reduz o espaçamento entre os logos */
+    }
+
+    .partner-logo {
+        max-height: 200px; /* Diminui a altura máxima dos logos para dispositivos menores */
+    }
+}
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*Agendar Reuniao*/
@@ -519,11 +533,12 @@ body {
     font-weight: 530;
     line-height: 0.5;
 }
+    
+
 
 .heading-topic-reuniao {
     text-align: center;
     padding-top: 5%;
-    padding-bottom: 0%;
     margin-bottom: -1%;
 }
 
@@ -548,7 +563,11 @@ body {
         font-size: 210%;
         width: 80%;
     }
+    .heading-topic-reuniao h1{
+        margin-bottom: 12%;
+    }
 }
+    
 
 .container_forms {
     flex-wrap: wrap;
@@ -781,8 +800,9 @@ textarea {
     padding-bottom: 0%;
     border-radius: 5px;
     margin-top: 10px;
-    font-size: 26px; /* Aumentado o tamanho da fonte das respostas */
+    font-size: 22px; /* Aumentado o tamanho da fonte das respostas */
     display: none; 
+    text-align: justify;
 }
 
 .faq-toggle {
@@ -916,3 +936,65 @@ footer {
     }
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Estilos responsivos */
+@media (min-width: 1101px) and (max-width: 1500px) {
+    .logo {
+        padding-left: 5%;
+    }
+
+    .navbar-nav {
+        padding-left: 3%;
+    }
+
+    /* Imagem inicial */
+#div-logo {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    z-index: 10;
+    width: 50%;
+}
+}
+
+@media (min-width: 700px) and (max-width: 1100px) {
+    .logo {
+        padding-left: 0%;
+    }
+
+    .navbar-nav {
+        padding-left: 0%;
+    }
+
+    
+
+
+    #div-logo {
+        z-index: 2; /* Garante que o logo fique acima do fundo */
+        width: auto; /* A largura é ajustada automaticamente */
+        display: flex; /* Flexbox para centralizar conteúdo */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-right: 5%;
+
+    }
+
+    #small-image {
+        width: 27%; /* Aumenta o tamanho do logo para 70% da tela em dispositivos móveis */
+        height: auto;
+        margin-left: -300px;
+        margin-top: -40px;
+        
+    }
+
+    .small-text {
+        color: white;
+        font-size: 1.5rem; /* Aumenta o tamanho da fonte para 2.5rem */
+        margin-left: -300px;
+        
+    }
+
+    
+}
+
